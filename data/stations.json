@@ -1,0 +1,17 @@
+[
+  { "name": "Majestic", "latitude": 12.9763, "longitude": 77.5713 },
+  { "name": "City Railway Station", "latitude": 12.9785, "longitude": 77.5718 },
+  { "name": "Cubbon Park", "latitude": 12.9760, "longitude": 77.5930 },
+  { "name": "MG Road", "latitude": 12.9756, "longitude": 77.6050 },
+  { "name": "Trinity", "latitude": 12.9721, "longitude": 77.6179 },
+  { "name": "Indiranagar", "latitude": 12.9784, "longitude": 77.6408 },
+  { "name": "Swami Vivekananda Road", "latitude": 12.9854, "longitude": 77.6535 },
+  { "name": "Byappanahalli", "latitude": 12.9907, "longitude": 77.6525 },
+  { "name": "Whitefield", "latitude": 12.9698, "longitude": 77.7499 },
+  { "name": "Jayanagar", "latitude": 12.9293, "longitude": 77.5823 },
+  { "name": "Banashankari", "latitude": 12.9250, "longitude": 77.5456 },
+  { "name": "Yelachenahalli", "latitude": 12.8937, "longitude": 77.5635 },
+  { "name": "Peenya", "latitude": 13.0329, "longitude": 77.5252 },
+  { "name": "Yeshwanthpur", "latitude": 13.0285, "longitude": 77.5547 },
+  { "name": "Nagasandra", "latitude": 13.0474, "longitude": 77.5006 }
+]
