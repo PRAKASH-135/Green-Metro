@@ -1,248 +1,212 @@
-# 🏦 Banking Transaction Backend
+# 🚇 Green Metro
 
-A secure and scalable banking transaction backend API built using **Node.js**, **Express.js**, and **MongoDB**. The application provides user authentication, account management, transaction processing, and email notifications through a RESTful architecture.
+Green Metro is a full-stack web application that encourages eco-friendly transportation by rewarding users for traveling via metro services. The platform verifies metro tickets using OCR technology, calculates carbon emissions saved, and awards reward points that can later be redeemed.
 
-## 🚀 Features
+## 🌱 Project Overview
 
-- 🔐 User Authentication using JWT
-- 🔒 Password Hashing with bcrypt
-- 🏦 Bank Account Management
-- 💸 Money Transfer Between Accounts
-- 📜 Transaction History Tracking
-- 📧 Email Notifications using Nodemailer
-- 🗄️ MongoDB Integration with Mongoose
-- ⚙️ Environment Variable Configuration with dotenv
-- 🌐 RESTful API Design
+Transportation is one of the major contributors to carbon emissions. Green Metro promotes sustainable commuting by tracking metro journeys and rewarding users for reducing their carbon footprint.
+
+Users can upload metro ticket images, and the system automatically extracts ticket information using Optical Character Recognition (OCR). Based on the distance traveled, the application calculates the estimated carbon emissions saved and credits reward points to the user's wallet.
+
+---
+
+## ✨ Features
+
+### 🔐 Authentication
+
+* User Registration
+* User Login
+* JWT-based Authentication
+* Password Encryption using bcrypt
+
+### 🎫 Smart Ticket Verification
+
+* Upload Metro Ticket Images
+* OCR-based Ticket Text Extraction using Tesseract.js
+* Ticket Number Detection
+* Duplicate Ticket Prevention
+* Ticket Image Hash Validation using SHA-256
+
+### 🚉 Trip Management
+
+* Log Metro Trips
+* Station Validation
+* Distance Calculation between Stations
+* Carbon Savings Calculation
+
+### 💰 Reward System
+
+* Earn Reward Points for Every Trip
+* Wallet Balance Tracking
+* Reward Redemption System
+* Reward History Management
+
+### 🌍 Sustainability Tracking
+
+* Carbon Emission Reduction Estimation
+* Green Travel Incentives
+* Environmental Impact Awareness
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| Node.js | Runtime Environment |
-| Express.js | Backend Framework |
-| MongoDB | Database |
-| Mongoose | ODM for MongoDB |
-| JWT | Authentication |
-| bcrypt | Password Encryption |
-| Nodemailer | Email Notifications |
-| dotenv | Environment Variables |
+### Frontend
+
+* React.js
+* TypeScript
+* Vite
+* Tailwind CSS
+* ShadCN UI
+* React Router
+* React Query
+* Axios
+
+### Backend
+
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
+* JWT Authentication
+* bcryptjs
+* Multer
+* Tesseract.js
+
+### Database
+
+* MongoDB Atlas
 
 ---
 
 ## 📂 Project Structure
 
 ```text
-banking_transaction_backend
+Green-Metro
 │
-├── src
+├── backend
 │   ├── config
-│   │   └── db.js
-│   │
 │   ├── controllers
-│   │   ├── authController.js
-│   │   ├── accountController.js
-│   │   └── transactionController.js
-│   │
+│   ├── middleware
 │   ├── models
-│   │   ├── User.js
-│   │   ├── Account.js
-│   │   └── Transaction.js
-│   │
 │   ├── routes
-│   │   ├── authRoutes.js
-│   │   ├── accountRoutes.js
-│   │   └── transactionRoutes.js
-│   │
 │   ├── services
-│   │   └── emailService.js
-│   │
-│   └── app.js
+│   ├── data
+│   └── server.js
 │
-├── server.js
-├── package.json
-├── .env
+├── frontend
+│   ├── src
+│   ├── public
+│   └── package.json
+│
 └── README.md
 ```
 
 ---
 
-## ⚙️ Installation
+## 🚀 Installation
 
-### 1️⃣ Clone the Repository
+### Clone Repository
 
 ```bash
-git clone https://github.com/PRAKASH-135/banking_transaction_backend.git
+git clone https://github.com/PRAKASH-135/Green-Metro.git
 ```
 
-### 2️⃣ Navigate to Project Directory
+### Backend Setup
 
 ```bash
-cd banking_transaction_backend
-```
-
-### 3️⃣ Install Dependencies
-
-```bash
+cd backend
 npm install
 ```
 
----
-
-## 🔑 Environment Variables
-
-Create a `.env` file in the root directory and add the following:
+Create a `.env` file:
 
 ```env
-PORT=3000
-
-MONGODB_URI=your_mongodb_connection_string
-
-JWT_SECRET=your_jwt_secret_key
-
-EMAIL_USER=your_email_address
-
-EMAIL_PASS=your_email_password
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
 ```
 
----
-
-## ▶️ Running the Application
-
-### Development Mode
+Run Backend:
 
 ```bash
 npm run dev
 ```
 
-### Production Mode
-
-```bash
-npm start
-```
-
-Server will start at:
-
-```text
-http://localhost:3000
-```
-
 ---
 
-## 📌 API Endpoints
+### Frontend Setup
 
-### Authentication
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-| Method | Endpoint | Description |
-|----------|-----------|-------------|
-| POST | /api/auth/register | Register User |
-| POST | /api/auth/login | Login User |
+Frontend will run at:
 
-### Accounts
-
-| Method | Endpoint | Description |
-|----------|-----------|-------------|
-| POST | /api/accounts | Create Account |
-| GET | /api/accounts/:id | Get Account Details |
-
-### Transactions
-
-| Method | Endpoint | Description |
-|----------|-----------|-------------|
-| POST | /api/transactions/transfer | Transfer Money |
-| GET | /api/transactions/history | Transaction History |
+```text
+http://localhost:5173
+```
 
 ---
 
 ## 🔄 Application Workflow
 
-1. User registers an account.
-2. Password is encrypted using bcrypt.
-3. User logs in and receives a JWT token.
-4. User creates a bank account.
-5. User performs transactions.
-6. Transaction details are stored in MongoDB.
-7. Email notification is sent after successful transactions.
-8. User can view transaction history.
+1. User registers and logs in.
+2. User uploads a metro ticket image.
+3. OCR extracts ticket information.
+4. Ticket number and image hash are validated.
+5. Distance between stations is calculated.
+6. Carbon emissions saved are estimated.
+7. Reward points are credited to the user's wallet.
+8. User can redeem rewards after accumulating sufficient points.
+
+---
+
+## 📊 Core Modules
+
+### User Management
+
+Handles registration, authentication, and profile management.
+
+### Ticket Verification
+
+Uses OCR and image hashing to validate uploaded metro tickets.
+
+### Trip Tracking
+
+Stores trip details, travel distance, and environmental impact data.
+
+### Wallet System
+
+Maintains reward points earned by users.
+
+### Reward Redemption
+
+Allows users to redeem accumulated reward points.
 
 ---
 
 ## 🔒 Security Features
 
-- JWT-based Authentication
-- Password Encryption with bcrypt
-- Protected Routes
-- Environment Variable Security
-- Input Validation and Error Handling
+* JWT Authentication
+* Password Hashing (bcryptjs)
+* Protected API Routes
+* Duplicate Ticket Prevention
+* SHA-256 Ticket Hash Validation
+* MongoDB Data Security
 
 ---
 
-## 📧 Example Use Case
+## 🌍 Future Enhancements
 
-### User Registration
-
-```http
-POST /api/auth/register
-```
-
-### User Login
-
-```http
-POST /api/auth/login
-```
-
-Returns:
-
-```json
-{
-  "token": "jwt_token_here"
-}
-```
-
-### Transfer Money
-
-```http
-POST /api/transactions/transfer
-```
-
-```json
-{
-  "fromAccount": "123456",
-  "toAccount": "654321",
-  "amount": 1000
-}
-```
-
-Response:
-
-```json
-{
-  "message": "Transaction successful"
-}
-```
-
----
-
-## 🧪 Testing
-
-You can test the API using:
-
-- Postman
-- Thunder Client
-- Insomnia
-
----
-
-## 📈 Future Enhancements
-
-- OTP Verification
-- Role-Based Access Control
-- Transaction Analytics Dashboard
-- Account Statements (PDF)
-- Two-Factor Authentication (2FA)
-- Docker Deployment
-- API Documentation using Swagger
+* QR Code Based Ticket Verification
+* Real-time Metro Route Integration
+* Leaderboards and Achievements
+* Carbon Savings Dashboard
+* Mobile Application Support
+* Blockchain-Based Reward Verification
 
 ---
 
@@ -252,14 +216,12 @@ You can test the API using:
 
 GitHub: https://github.com/PRAKASH-135
 
-LinkedIn: Add your LinkedIn profile here
-
 ---
 
 ## 📜 License
 
-This project is licensed under the ISC License.
+This project is licensed under the MIT License.
 
 ---
 
-⭐ If you found this project useful, please consider giving it a star on GitHub.
+⭐ Support sustainable transportation and contribute to a greener future with Green Metro!
